@@ -52,7 +52,6 @@ function App({ apikey, lat, lon, location }) {
 
     return (
         <div className="app-root">
-            <PoweredByTomorrow />
             <div className="time">{now.toDateString()}</div>
             <div className="location">
                 <img className="icon location-icon"

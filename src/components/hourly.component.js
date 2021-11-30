@@ -12,6 +12,7 @@ function Hourly({ hourly }) {
                     <div key="hour-time" className="hour-time">{formatTime(hour.startTime)}</div>
                     <div key="hour-icon" className="hour-icon"><WeatherIcon value={hour.values.weatherCode} /></div>
                     <div key="hour-temp" className="hour-temp"><Temp value={hour.values.temperature} />°</div>
+                    <div key="hour-temp" className="hour-temp"><Temp value={hour.values.windSpeed} />mph</div>
                 </div>
             ))}
         </div>
