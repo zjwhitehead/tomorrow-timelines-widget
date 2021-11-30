@@ -1,10 +1,11 @@
 /**
  * @return {string}
  */
-function Wind({ speed }) {
+function Wind({ speed, gust }) {
     try {
-        const number = Number.parseFloat(speed);
-        return `${number.toFixed(0)}`;
+        const speedNum = Number.parseFloat(speed);
+        const gustNum = Number.parseFloat(gust);
+        return `${speedNum.toFixed(0)} - ${gustNum.toFixed(0)}`;
     } catch (e) {
         return '';
     }
