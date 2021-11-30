@@ -16,7 +16,7 @@ function Loading() {
 }
 
 function Error() {
-    return <div>Oops! Something went wrong :(</div>;
+    return <div>Oops! Something went wrong :( - Please check params</div>;
 }
 
 function PoweredByTomorrow() {
