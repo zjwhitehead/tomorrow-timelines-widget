@@ -24,7 +24,8 @@ const weatherIcons = {
     7000: require('./icons/ice_pellets.svg'),
     7101: require('./icons/ice_pellets_heavy.svg'),
     7102: require('./icons/ice_pellets_light.svg'),
-    8000: require('./icons/tstorm.svg')
+    8000: require('./icons/tstorm.svg'),
+    arrow: require('./icons/icon-arrow-up.svg'),
   };
 
 export function getIcon(weatherCode) {

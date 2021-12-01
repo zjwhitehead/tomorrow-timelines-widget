@@ -2,6 +2,7 @@ import React from 'react';
 import './app.component.css';
 import { Realtime } from "./realtime.component";
 import { Hourly } from "./hourly.component";
+import { Gonogo } from "./gonogo.component";
 import { useTimeline } from "../hooks/use-weather.hook";
 import TomorrowIcon from '../icons/tomorrow-icon.svg';
 import PinIcon from '../icons/pin.svg';
@@ -63,6 +64,7 @@ function App({ apikey, lat, lon, location }) {
             <Realtime realtime={realtimeResponse} />
             <div className="divider" />
             <Hourly hourly={hourlyResponse} />
+            <Gonogo hourly={hourlyResponse} />
         </div>
     );
 }
