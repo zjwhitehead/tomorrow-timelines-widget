@@ -12,12 +12,11 @@ jobs:
 
       - name: Install and Build 🔧
         run: |
-          npm install
-          npm run build
+          CI= npm install
+          CI= npm run build
 
       - name: Deploy 🚀
         uses: JamesIves/github-pages-deploy-action@4.1.5
         with:
-          branch: master # The branch the action should deploy to.
+          branch: pages # The branch the action should deploy to.
           folder: build # The folder the action should deploy.
-          target-folder: build # Keep in the same folder for now based on pages config
