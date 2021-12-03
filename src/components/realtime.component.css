@@ -7,10 +7,14 @@
 }
 
 .realtime-temp {
-    font-size: 60px;
-    line-height: 60px;
+    font-size: 100px;
+    line-height: 100px;
     font-weight: bold;
     color: var(--blackish);
+}
+
+.realtime-extras {
+    font-size: 20px;
 }
 
 .realtime-temp-degrees {
@@ -26,8 +30,8 @@
 }
 
 .realtime-icon {
-    width: 66px;
-    height: 66px;
+    width: 75px;
+    height: 75px;
     margin-left: auto;
 }
 

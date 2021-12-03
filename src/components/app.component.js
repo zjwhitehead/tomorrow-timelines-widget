@@ -2,6 +2,7 @@ import React from 'react';
 import './app.component.css';
 import { Realtime } from "./realtime.component";
 import { Hourly } from "./hourly.component";
+import { Gonogo } from "./gonogo.component";
 import { useTimeline } from "../hooks/use-weather.hook";
 import TomorrowIcon from '../icons/tomorrow-icon.svg';
 import PinIcon from '../icons/pin.svg';
@@ -16,7 +17,7 @@ function Loading() {
 }
 
 function Error() {
-    return <div>Oops! Something went wrong :(</div>;
+    return <div>Oops! Something went wrong :( - Please check params</div>;
 }
 
 function PoweredByTomorrow() {
@@ -52,7 +53,6 @@ function App({ apikey, lat, lon, location }) {
 
     return (
         <div className="app-root">
-            <PoweredByTomorrow />
             <div className="time">{now.toDateString()}</div>
             <div className="location">
                 <img className="icon location-icon"
@@ -64,6 +64,7 @@ function App({ apikey, lat, lon, location }) {
             <Realtime realtime={realtimeResponse} />
             <div className="divider" />
             <Hourly hourly={hourlyResponse} />
+            <Gonogo hourly={hourlyResponse} />
         </div>
     );
 }

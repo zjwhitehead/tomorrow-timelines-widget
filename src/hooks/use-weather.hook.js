@@ -11,11 +11,11 @@ import { createUrl } from "../utilities";
         query: {
             apikey,
             location: `${lat},${lon}`,
-            units: 'metric',
+            units: 'imperial',
             startTime,
             endTime,
             timesteps: 'current,1h',
-            fields: 'precipitationIntensity,temperature,temperatureApparent,weatherCode',
+            fields: 'precipitationIntensity,temperature,temperatureApparent,weatherCode,windSpeed,windDirection,windGust',
         }
     });
 
