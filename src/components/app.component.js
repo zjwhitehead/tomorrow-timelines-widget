@@ -53,7 +53,7 @@ function App({ apikey, lat, lon, location }) {
 
     return (
         <div className="app-root">
-            <div className="time">{now.toDateString()}</div>
+            <div className="date">{now.toDateString()} <span className="time">{now.toLocaleTimeString()}</span></div>
             <div className="location">
                 <img className="icon location-icon"
                      src={PinIcon}

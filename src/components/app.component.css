@@ -61,8 +61,12 @@
     margin-right: 2px;
 }
 
-.time {
+.date {
     margin-bottom: 4px;
+}
+
+.time {
+    float: right;
 }
 
 .location {

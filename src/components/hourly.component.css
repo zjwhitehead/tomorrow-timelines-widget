@@ -29,6 +29,14 @@
     margin: 6px 0;
 }
 
+.hour-wind-dir{
+    padding-top: 10px;
+}
+
+.hour-temp{
+    font-size: larger;
+}
+
 @media only screen and (max-width: 768px) {
     .hourly {
         flex-direction: column;
