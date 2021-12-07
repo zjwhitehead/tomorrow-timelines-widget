@@ -2,7 +2,6 @@ import React from 'react';
 import './app.component.css';
 import { Realtime } from "./realtime.component";
 import { Hourly } from "./hourly.component";
-import { Gonogo } from "./gonogo.component";
 import { useTimeline } from "../hooks/use-weather.hook";
 import TomorrowIcon from '../icons/tomorrow-icon.svg';
 import PinIcon from '../icons/pin.svg';
@@ -10,7 +9,7 @@ import { addHours } from "../utilities";
 
 const now = new Date();
 const startTime = now.toISOString();
-const endTime = addHours({ date: now, hours: 24 }).toISOString();
+const endTime = addHours({ date: now, hours: 8 }).toISOString();
 
 function Loading() {
     return <div>Loading...</div>;
@@ -64,7 +63,6 @@ function App({ apikey, lat, lon, location }) {
             <Realtime realtime={realtimeResponse} />
             <div className="divider" />
             <Hourly hourly={hourlyResponse} />
-            <Gonogo hourly={hourlyResponse} />
         </div>
     );
 }
