@@ -15,7 +15,7 @@ function Hourly({ hourly }) {
                     <div key="hour-icon" className="hour-icon"><WeatherIcon value={hour.values.weatherCode} /></div>
                     <div key="hour-temp" className="hour-temp"><Temp value={hour.values.temperature} />°</div>
                     <div key="hour-wind" className="hour-wind"><Wind speed={hour.values.windSpeed} gust={hour.values.windGust}/></div>
-                    <div key="hour-wind-dir" className="hour-wind-dir"><WindDirection rotation={hour.values.windDirection} /></div>
+                    <div key="hour-wind-dir" className="hour-wind-dir"><WindDirection rotation={hour.values.windDirection} speed={hour.values.windSpeed} /></div>
                 </div>
             ))}
         </div>
