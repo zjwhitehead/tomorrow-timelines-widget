@@ -10,7 +10,7 @@ import { addHours } from "../utilities";
 
 const now = new Date();
 const startTime = now.toISOString();
-const endTime = addHours({ date: now, hours: 6 }).toISOString();
+const endTime = addHours({ date: now, hours: 24 }).toISOString();
 
 function Loading() {
     return <div>Loading...</div>;

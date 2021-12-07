@@ -15,9 +15,11 @@ import { createUrl } from "../utilities";
             startTime,
             endTime,
             timesteps: 'current,1h',
-            fields: 'precipitationIntensity,temperature,temperatureApparent,weatherCode,windSpeed,windDirection,windGust',
+            fields: 'precipitationIntensity,temperature,temperatureApparent,weatherCode,windSpeed,windDirection,windGust,visibility,precipitationProbability',
         }
     });
+
+    // need sunriseTime,sunsetTime but it only works on 1d intervals
 
     return useFetch({ url });
 };

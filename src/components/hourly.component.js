@@ -9,7 +9,7 @@ import { WindDirection } from "./wind-direction.component";
 function Hourly({ hourly }) {
     return (
         <div key="hourly" className="hourly">
-            {hourly.intervals.map((hour, index) => (
+            {hourly.intervals.slice(0, 7).map((hour, index) => (
                 <div key={index} className="hour">
                     <div key="hour-time" className="hour-time">{formatTime(hour.startTime)}</div>
                     <div key="hour-icon" className="hour-icon"><WeatherIcon value={hour.values.weatherCode} /></div>
