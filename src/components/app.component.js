@@ -7,6 +7,10 @@ import TomorrowIcon from '../icons/tomorrow-icon.svg';
 import PinIcon from '../icons/pin.svg';
 import { addHours } from "../utilities";
 
+import { library } from "@fortawesome/fontawesome-svg-core";
+import { faCheckCircle, faTimesCircle } from "@fortawesome/free-regular-svg-icons";
+library.add(faCheckCircle, faTimesCircle);
+
 const now = new Date();
 const startTime = now.toISOString();
 const endTime = addHours({ date: now, hours: 8 }).toISOString();
