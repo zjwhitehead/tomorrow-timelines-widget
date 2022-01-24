@@ -1,10 +1,10 @@
 {
   "main.css": "static/css/main.778d7e1e.css",
   "main.css.map": "static/css/main.778d7e1e.css.map",
-  "main.js": "static/js/main.34db97dc.js",
-  "main.js.map": "static/js/main.34db97dc.js.map",
+  "main.js": "static/js/main.1328b07e.js",
+  "main.js.map": "static/js/main.1328b07e.js.map",
   "static/media/clear_day.svg": "static/media/clear_day.a1d3c0e6.svg",
-  "static/media/cloudy.svg": "static/media/cloudy.06c32653.svg",
+  "static/media/cloudy.svg": "static/media/cloudy.7fd40abc.svg",
   "static/media/drizzle.svg": "static/media/drizzle.c6e9c23f.svg",
   "static/media/flurries.svg": "static/media/flurries.5a8aef1d.svg",
   "static/media/fog.svg": "static/media/fog.e867cd31.svg",
@@ -28,5 +28,5 @@
   "static/media/snow_heavy.svg": "static/media/snow_heavy.3148715d.svg",
   "static/media/snow_light.svg": "static/media/snow_light.0334b57a.svg",
   "static/media/tomorrow-icon.svg": "static/media/tomorrow-icon.7afc317e.svg",
-  "static/media/tstorm.svg": "static/media/tstorm.6fb6d1aa.svg"
+  "static/media/tstorm.svg": "static/media/tstorm.bc046fce.svg"
 }
