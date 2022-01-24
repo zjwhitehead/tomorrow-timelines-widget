@@ -8,8 +8,9 @@ import PinIcon from '../icons/pin.svg';
 import { addHours } from "../utilities";
 
 import { library } from "@fortawesome/fontawesome-svg-core";
-import { faCheckCircle, faTimesCircle } from "@fortawesome/free-regular-svg-icons";
-library.add(faCheckCircle, faTimesCircle);
+import { faCheckCircle } from "@fortawesome/free-regular-svg-icons";
+import { faTimes } from "@fortawesome/free-solid-svg-icons";
+library.add(faCheckCircle, faTimes);
 
 const now = new Date();
 const startTime = now.toISOString();
@@ -21,20 +22,6 @@ function Loading() {
 
 function Error() {
     return <div>Oops! Something went wrong :( - Please check params</div>;
-}
-
-function PoweredByTomorrow() {
-    return (
-        <div className="powered">
-            <a className="powered-link" target="_blank" href="https://www.tomorrow.io">
-                <img className="icon powered-icon"
-                     src={TomorrowIcon}
-                     alt="Powered by Tomorrow.io"
-                     title="Powered by Tomorrow.io" />
-                Powered by Tomorrow.io
-            </a>
-        </div>
-    );
 }
 
 function App({ apikey, lat, lon, location }) {
