@@ -27,6 +27,7 @@
 
 .realtime-weather-code{
     color: var(--blackish);
+    text-align: center;
 }
 
 .realtime-icon {

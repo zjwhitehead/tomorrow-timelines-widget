@@ -15,7 +15,7 @@ import { createUrl } from "../utilities";
             startTime,
             endTime,
             timesteps: 'current,1h',
-            fields: 'precipitationIntensity,temperature,temperatureApparent,weatherCode,windSpeed,windDirection,windGust,visibility,precipitationProbability',
+            fields: 'precipitationIntensity,humidity,temperature,temperatureApparent,weatherCode,windSpeed,windDirection,windGust,visibility,precipitationProbability',
         }
     });
 

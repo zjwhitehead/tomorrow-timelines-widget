@@ -11,12 +11,13 @@ function Realtime({ realtime }) {
             <div className="realtime-temp"><Temp value={realtime.intervals[0].values.temperature} /></div>
             <div className="realtime-temp-degrees">°F</div>
             <div className="realtime-extras">
-                <div className="realtime-weather-code">{prettyPrintWeatherCode(realtime.intervals[0].values.weatherCode)}</div>
                 <div className="realtime-feels-like">Feels Like <Temp value={realtime.intervals[0].values.temperatureApparent} />°</div>
-                <div className="realtime-feels-like">Wind: <Wind speed={realtime.intervals[0].values.windSpeed} gust={realtime.intervals[0].values.windGust} /></div>
+                <div className="realtime-humidity">Humidity <Temp value={realtime.intervals[0].values.humidity} />%</div>
+                <div className="realtime-wind">Wind <Wind speed={realtime.intervals[0].values.windSpeed} gust={realtime.intervals[0].values.windGust} /></div>
             </div>
             <div className="realtime-icon">
                 <WeatherIcon value={realtime.intervals[0].values.weatherCode} />
+                <div className="realtime-weather-code">{prettyPrintWeatherCode(realtime.intervals[0].values.weatherCode)}</div>
             </div>
         </div>
     );
