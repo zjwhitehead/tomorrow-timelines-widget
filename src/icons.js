@@ -1,3 +1,4 @@
+//TODO leverage night icons
 const weatherIcons = {
     1000: require('./icons/clear_day.svg'),
     1001: require('./icons/cloudy.svg'),
