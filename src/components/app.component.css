@@ -47,20 +47,6 @@
     margin: 16px -16px 16px -16px;
 }
 
-.powered {
-    font-size: 14px;
-    float: right;
-}
-
-.powered-link {
-    text-decoration: none;
-    color: var(--blue);
-}
-
-.powered-icon {
-    margin-right: 2px;
-}
-
 .date {
     margin-bottom: 4px;
 }

@@ -12,8 +12,6 @@ import { createUrl } from "../utilities";
             apikey,
             location: `${lat},${lon}`,
             units: 'imperial',
-            startTime,
-            endTime,
             timesteps: 'current,1h',
             fields: 'humidity,temperature,temperatureApparent,weatherCode,windSpeed,windDirection,windGust,visibility,precipitationProbability',
         }
