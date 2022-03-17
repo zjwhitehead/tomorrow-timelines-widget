@@ -37,9 +37,9 @@ function App({ apikey, lat, lon, location }) {
         return <Error />;
     }
 
-    const realtimeResponse = timelineResponse.data.timelines[0];
+    const realtimeResponse = timelineResponse.data.timelines[1];
 
-    const hourlyResponse = timelineResponse.data.timelines[1];
+    const hourlyResponse = timelineResponse.data.timelines[0];
 
     return (
         <div className="app-root">
