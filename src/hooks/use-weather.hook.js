@@ -13,6 +13,7 @@ import { createUrl } from "../utilities";
             location: `${lat},${lon}`,
             units: 'imperial',
             timesteps: 'current,1h',
+            endTime: endTime,
             fields: 'humidity,temperature,temperatureApparent,weatherCode,windSpeed,windDirection,windGust,visibility,precipitationProbability',
         }
     });

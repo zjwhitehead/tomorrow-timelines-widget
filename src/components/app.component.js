@@ -14,7 +14,7 @@ library.add(faCheckCircle, faTimes);
 
 const now = new Date();
 const startTime = now.toISOString();
-const endTime = addHours({ date: now, hours: 8 }).toISOString();
+const endTime = addHours({ date: now, hours: 48 }).toISOString();
 
 function Loading() {
     return <div>Loading...</div>;
