@@ -6,9 +6,9 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 function Gonogo({ values }){
     function flyable(values){
-        if (values.temperature > 60 && values.windSpeed < 10 &&
-            values.windGust < 15 && values.precipitationProbability < 25 && 
-            values.visibility > 2 ){
+        if (values.temperature > 60 && values.temperature < 100 &&
+            values.windSpeed < 10 &&  values.windGust < 15 &&
+            values.precipitationProbability < 25 && values.visibility > 2 ){
             return ['far', 'check-circle']
         }
         else{
