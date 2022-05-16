@@ -3,9 +3,11 @@ import './app.component.css';
 import { Realtime } from "./realtime.component";
 import { Hourly } from "./hourly.component";
 import { useTimeline } from "../hooks/use-weather.hook";
+import { useSunrise } from "../hooks/use-sunrise.hook";
 import TomorrowIcon from '../icons/tomorrow-icon.svg';
 import PinIcon from '../icons/pin.svg';
 import { addHours } from "../utilities";
+import { isFlyableTime } from "../utilities";
 
 import { library } from "@fortawesome/fontawesome-svg-core";
 import { faCheckCircle } from "@fortawesome/free-regular-svg-icons";
@@ -25,21 +27,31 @@ function Error() {
 }
 
 function App({ apikey, lat, lon, location }) {
+    const [sunriseResponse, sunriseLoading, sunriseHasError] = useSunrise({
+        lat, lon
+    });
+
     const [timelineResponse, timelineLoading, timelineHasError] = useTimeline({
         apikey, lat, lon, startTime, endTime
     });
 
-    if (timelineLoading) {
+    if (timelineLoading || sunriseLoading) {
         return <Loading />;
     }
 
-    if (timelineHasError) {
+    if (timelineHasError || sunriseHasError) {
         return <Error />;
     }
 
-    const realtimeResponse = timelineResponse.data.timelines[1];
+    const sunriseResults = sunriseResponse.results;
 
+    const realtimeResponse = timelineResponse.data.timelines[1];
     const hourlyResponse = timelineResponse.data.timelines[0];
+
+    const sunrise = new Date(sunriseResults.civil_twilight_begin);
+    const sunset = new Date(sunriseResults.civil_twilight_end);
+
+    const hourlyData = hourlyResponse.intervals.filter(hour => isFlyableTime(hour.startTime,sunrise,sunset));
 
     return (
         <div className="app-root">
@@ -53,7 +65,7 @@ function App({ apikey, lat, lon, location }) {
             </div>
             <Realtime realtime={realtimeResponse} />
             <div className="divider" />
-            <Hourly hourly={hourlyResponse} />
+            <Hourly hourly={hourlyData} />
         </div>
     );
 }

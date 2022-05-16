@@ -1,7 +1,6 @@
 import React from 'react';
 import './hourly.component.css';
 import { formatTime } from "../utilities";
-import { isSleepTime } from "../utilities";
 import { Temp } from "./temp.component";
 import { Wind } from "./wind.component";
 import { WeatherIcon } from "./weather-icon.component";
@@ -11,7 +10,7 @@ import { Gonogo } from "./gonogo.component";
 function Hourly({ hourly }) {
     return (
         <div key="hourly" className="hourly">
-            {hourly.intervals.filter(hour => !isSleepTime(hour.startTime)).slice(0, 7).map((hour, index) => (
+            {hourly.slice(0, 7).map((hour, index) => (
                 <div key={index} className="hour">
                     <div key="hour-time" className="hour-time">{formatTime(hour.startTime)}</div>
                     <div key="hour-icon" className="hour-icon"><WeatherIcon value={hour.values.weatherCode} /></div>

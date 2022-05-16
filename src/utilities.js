@@ -50,11 +50,20 @@ const formatTime = (time) => {
   return `${display}${suffix}`;
 };
 
-// TODO use https://api.sunrise-sunset.org/json?lat=36.7201600&lng=-4.4203400&date=today&formatted=0
 const isSleepTime = (time) => {
   const hours = new Date(time).getHours();
   return hours < 6;
 };
+
+/**
+ * Calculate if time hour is between start and end hours.
+ */
+const isFlyableTime = (time_string, start_time, end_time) => {
+  const time = new Date(time_string).getHours();
+
+  return start_time.getHours() < time && time < end_time.getHours();
+};
+
 
 /**
  * Converts weather code value to human display string.
@@ -95,4 +104,4 @@ const prettyPrintWeatherCode = (code) => {
   return weatherCodes[code.toString()];
 };
 
-export { createUrl, addHours, isSleepTime, formatTime, prettyPrintWeatherCode };
+export { createUrl, addHours, isSleepTime, isFlyableTime, formatTime, prettyPrintWeatherCode };

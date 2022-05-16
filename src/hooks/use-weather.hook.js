@@ -18,8 +18,6 @@ import { createUrl } from "../utilities";
         }
     });
 
-    // need sunriseTime,sunsetTime but it only works on 1d intervals
-
     return useFetch({ url });
 };
 
