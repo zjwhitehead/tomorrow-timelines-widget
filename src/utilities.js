@@ -50,6 +50,12 @@ const formatTime = (time) => {
   return `${display}${suffix}`;
 };
 
+// TODO use https://api.sunrise-sunset.org/json?lat=36.7201600&lng=-4.4203400&date=today&formatted=0
+const isSleepTime = (time) => {
+  const hours = new Date(time).getHours();
+  return hours < 6;
+};
+
 /**
  * Converts weather code value to human display string.
  * Example: freezing_rain to Freezing Rain
@@ -89,4 +95,4 @@ const prettyPrintWeatherCode = (code) => {
   return weatherCodes[code.toString()];
 };
 
-export { createUrl, addHours, formatTime, prettyPrintWeatherCode };
+export { createUrl, addHours, isSleepTime, formatTime, prettyPrintWeatherCode };
