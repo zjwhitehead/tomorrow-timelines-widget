@@ -61,7 +61,7 @@ const isSleepTime = (time) => {
 const isFlyableTime = (time_string, start_time, end_time) => {
   const time = new Date(time_string).getHours();
 
-  return start_time.getHours() < time && time < end_time.getHours();
+  return start_time.getHours() <= time && time <= end_time.getHours();
 };
 
 
