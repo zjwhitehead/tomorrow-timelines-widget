@@ -59,17 +59,17 @@ function App({ apikey, lat, lon, location }) {
 
     return (
         <div className="app-root">
-            <div className="date">{now.toDateString()} <span className="time">{now.toLocaleTimeString()}</span></div>
-            <div className="sunriseset">
-                <SunRiseSet isSunrise={true} time={sunrise.toLocaleTimeString()}/>
-                <SunRiseSet isSunrise={false} time={sunset.toLocaleTimeString()} /> 
-            </div>
-            <div className="location">
-                <img className="icon location-icon"
-                     src={PinIcon}
-                     alt={location}
-                     title={location} />
-                {location}
+            <div class="flex-grid-thirds">
+                <div className="col">{now.toDateString()} 
+                    <div className="location">
+                    <img className="icon location-icon" src={PinIcon} alt={location} title={location} />
+                        {location}
+                </div></div>
+                <div className="col"><div className="sunriseset">
+                    <SunRiseSet isSunrise={true} time={sunrise.toLocaleTimeString()}/>
+                    <SunRiseSet isSunrise={false} time={sunset.toLocaleTimeString()} /> 
+                </div></div>
+                <div className="col"><span className="time">{now.toLocaleTimeString()}</span></div>
             </div>
             <Realtime realtime={realtimeResponse} />
             <div className="divider" />
