@@ -2,6 +2,7 @@ import React from 'react';
 import './app.component.css';
 import { Realtime } from "./realtime.component";
 import { Hourly } from "./hourly.component";
+import { SunRiseSet } from "./sunriseset.component";
 import { useTimeline } from "../hooks/use-weather.hook";
 import { useSunrise } from "../hooks/use-sunrise.hook";
 import TomorrowIcon from '../icons/tomorrow-icon.svg';
@@ -48,14 +49,21 @@ function App({ apikey, lat, lon, location }) {
     const realtimeResponse = timelineResponse.data.timelines[1];
     const hourlyResponse = timelineResponse.data.timelines[0];
 
-    const sunrise = new Date(sunriseResults.civil_twilight_begin);
-    const sunset = new Date(sunriseResults.civil_twilight_end);
+    const twilight_begin = new Date(sunriseResults.civil_twilight_begin);
+    const twilight_end = new Date(sunriseResults.civil_twilight_end);
 
-    const hourlyData = hourlyResponse.intervals.filter(hour => isFlyableTime(hour.startTime,sunrise,sunset));
+    const sunrise = new Date(sunriseResults.sunrise);
+    const sunset = new Date(sunriseResults.sunset);
+
+    const hourlyData = hourlyResponse.intervals.filter(hour => isFlyableTime(hour.startTime,twilight_begin,twilight_end));
 
     return (
         <div className="app-root">
             <div className="date">{now.toDateString()} <span className="time">{now.toLocaleTimeString()}</span></div>
+            <div className="sunriseset">
+                <SunRiseSet isSunrise={true} time={sunrise.toLocaleTimeString()}/>
+                <SunRiseSet isSunrise={false} time={sunset.toLocaleTimeString()} /> 
+            </div>
             <div className="location">
                 <img className="icon location-icon"
                      src={PinIcon}
