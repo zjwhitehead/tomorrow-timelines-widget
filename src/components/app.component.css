@@ -65,6 +65,19 @@
     opacity: .5;
 }
 
+.flex-grid-thirds {
+    display: flex;
+    justify-content: space-between;
+}
+
+.flex-grid-thirds .col {
+    width: 32%;
+}
+
+.sunriseset {
+    text-align: center;
+}
+
 @media only screen and (max-width: 768px) {
     .powered {
         max-width: 90px;
