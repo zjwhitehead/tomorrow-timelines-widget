@@ -31,7 +31,8 @@
 }
 
 .realtime-icon {
-    margin-left: auto;
+    margin-left: 20px;
+    width: 50px;
 }
 
 @media only screen and (max-width: 768px) {

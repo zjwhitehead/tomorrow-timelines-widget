@@ -2,7 +2,6 @@ import React from 'react';
 import './app.component.css';
 import { Realtime } from "./realtime.component";
 import { Hourly } from "./hourly.component";
-import { SunRiseSet } from "./sunriseset.component";
 import { useTimeline } from "../hooks/use-weather.hook";
 import { useSunrise } from "../hooks/use-sunrise.hook";
 import Moment from 'react-moment';
@@ -65,12 +64,8 @@ function App({ apikey, lat, lon, location }) {
                     <img className="icon location-icon" src={PinIcon} alt={location} title={location} />
                         {location}
                 </div></div>
-                <div className="col"><div className="sunriseset">
-                    <SunRiseSet isSunrise={true} time={sunrise}/>
-                    <SunRiseSet isSunrise={false} time={sunset} /> 
-                </div></div>
             </div>
-            <Realtime realtime={realtimeResponse} />
+            <Realtime realtime={realtimeResponse} sunrise={sunrise} sunset={sunset} />
             <div className="divider" />
             <Hourly hourly={hourlyData} />
         </div>
