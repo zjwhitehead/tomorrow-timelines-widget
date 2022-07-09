@@ -24,10 +24,10 @@ function useFetch({ url }) {
             .catch(() => {
                 setHasError(true);
                 setLoading(false);
-            })
+            });
     }, [url]);
 
-    return [response, loading, hasError]
+    return [response, loading, hasError];
 }
 
 export { useFetch };

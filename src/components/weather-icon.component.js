@@ -1,6 +1,6 @@
 import React from 'react';
-import { getIcon } from "../icons";
-import { prettyPrintWeatherCode } from "../utilities";
+import { getIcon } from '../icons';
+import { prettyPrintWeatherCode } from '../utilities';
 
 function WeatherIcon({ value }) {
     const pretty = prettyPrintWeatherCode(value);

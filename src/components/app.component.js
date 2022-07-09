@@ -1,17 +1,17 @@
 import React from 'react';
 import './app.component.css';
-import { Realtime } from "./realtime.component";
-import { Hourly } from "./hourly.component";
-import { useTimeline } from "../hooks/use-weather.hook";
-import { useSunrise } from "../hooks/use-sunrise.hook";
+import { Realtime } from './realtime.component';
+import { Hourly } from './hourly.component';
+import { useTimeline } from '../hooks/use-weather.hook';
+import { useSunrise } from '../hooks/use-sunrise.hook';
 import Moment from 'react-moment';
 import PinIcon from '../icons/pin.svg';
-import { addHours } from "../utilities";
-import { isFlyableTime } from "../utilities";
+import { addHours } from '../utilities';
+import { isFlyableTime } from '../utilities';
 
-import { library } from "@fortawesome/fontawesome-svg-core";
-import { faCheckCircle } from "@fortawesome/free-regular-svg-icons";
-import { faTimes } from "@fortawesome/free-solid-svg-icons";
+import { library } from '@fortawesome/fontawesome-svg-core';
+import { faCheckCircle } from '@fortawesome/free-regular-svg-icons';
+import { faTimes } from '@fortawesome/free-solid-svg-icons';
 library.add(faCheckCircle, faTimes);
 
 const now = new Date();
@@ -28,11 +28,16 @@ function Error() {
 
 function App({ apikey, lat, lon, location }) {
     const [sunriseResponse, sunriseLoading, sunriseHasError] = useSunrise({
-        lat, lon
+        lat,
+        lon,
     });
 
     const [timelineResponse, timelineLoading, timelineHasError] = useTimeline({
-        apikey, lat, lon, startTime, endTime
+        apikey,
+        lat,
+        lon,
+        startTime,
+        endTime,
     });
 
     if (timelineLoading || sunriseLoading) {
@@ -54,16 +59,25 @@ function App({ apikey, lat, lon, location }) {
     const sunrise = new Date(sunriseResults.sunrise);
     const sunset = new Date(sunriseResults.sunset);
 
-    const hourlyData = hourlyResponse.intervals.filter(hour => isFlyableTime(hour.startTime,twilight_begin,twilight_end));
+    const hourlyData = hourlyResponse.intervals.filter((hour) =>
+        isFlyableTime(hour.startTime, twilight_begin, twilight_end)
+    );
 
     return (
         <div className="app-root">
             <div className="flex-grid-thirds">
-                <div className="col"><Moment date={now} format="ddd MMM Do, h:mm a"></Moment> 
+                <div className="col">
+                    <Moment date={now} format="ddd MMM Do, h:mm a"></Moment>
                     <div className="location">
-                    <img className="icon location-icon" src={PinIcon} alt={location} title={location} />
+                        <img
+                            className="icon location-icon"
+                            src={PinIcon}
+                            alt={location}
+                            title={location}
+                        />
                         {location}
-                </div></div>
+                    </div>
+                </div>
             </div>
             <Realtime realtime={realtimeResponse} sunrise={sunrise} sunset={sunset} />
             <div className="divider" />

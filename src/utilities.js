@@ -5,22 +5,22 @@
  * @returns {string}
  */
 const createUrl = ({ url, query = {} }) => {
-  const urlBuilder = new URL(url);
+    const urlBuilder = new URL(url);
 
-  Object.entries(query).forEach(([key, value]) => {
-    if (value == null) {
-      return;
-    }
+    Object.entries(query).forEach(([key, value]) => {
+        if (value == null) {
+            return;
+        }
 
-    if (Array.isArray(value)) {
-      value.forEach((val) => urlBuilder.searchParams.append(key, val));
-      return;
-    }
+        if (Array.isArray(value)) {
+            value.forEach((val) => urlBuilder.searchParams.append(key, val));
+            return;
+        }
 
-    urlBuilder.searchParams.append(key, value);
-  });
+        urlBuilder.searchParams.append(key, value);
+    });
 
-  return urlBuilder.toString();
+    return urlBuilder.toString();
 };
 
 /**
@@ -29,9 +29,9 @@ const createUrl = ({ url, query = {} }) => {
  * @param hours
  */
 const addHours = ({ date, hours = 0 }) => {
-  const newDate = new Date(date.valueOf());
-  newDate.setTime(date.getTime() + hours * 60 * 60 * 1000);
-  return newDate;
+    const newDate = new Date(date.valueOf());
+    newDate.setTime(date.getTime() + hours * 60 * 60 * 1000);
+    return newDate;
 };
 
 /**
@@ -41,29 +41,28 @@ const addHours = ({ date, hours = 0 }) => {
  * @returns {string}
  */
 const formatTime = (time) => {
-  const hours = new Date(time).getHours();
-  const suffix = hours >= 12 ? "PM" : "AM";
-  let display = hours % 12;
-  if (display === 0) {
-    display = 12;
-  }
-  return `${display}${suffix}`;
+    const hours = new Date(time).getHours();
+    const suffix = hours >= 12 ? 'PM' : 'AM';
+    let display = hours % 12;
+    if (display === 0) {
+        display = 12;
+    }
+    return `${display}${suffix}`;
 };
 
 const isSleepTime = (time) => {
-  const hours = new Date(time).getHours();
-  return hours < 6;
+    const hours = new Date(time).getHours();
+    return hours < 6;
 };
 
 /**
  * Calculate if time hour is between start and end hours.
  */
 const isFlyableTime = (time_string, start_time, end_time) => {
-  const time = new Date(time_string).getHours();
+    const time = new Date(time_string).getHours();
 
-  return start_time.getHours() <= time && time <= end_time.getHours();
+    return start_time.getHours() <= time && time <= end_time.getHours();
 };
-
 
 /**
  * Converts weather code value to human display string.
@@ -72,36 +71,43 @@ const isFlyableTime = (time_string, start_time, end_time) => {
  * @returns {string}
  */
 const prettyPrintWeatherCode = (code) => {
-  const weatherCodes = {
-    0: "Unknown",
-    1000: "Clear",
-    1001: "Cloudy",
-    1100: "Mostly Clear",
-    1101: "Partly Cloudy",
-    1102: "Mostly Cloudy",
-    2000: "Fog",
-    2100: "Light Fog",
-    3000: "Light Wind",
-    3001: "Wind",
-    3002: "Strong Wind",
-    4000: "Drizzle",
-    4001: "Rain",
-    4200: "Light Rain",
-    4201: "Heavy Rain",
-    5000: "Snow",
-    5001: "Flurries",
-    5100: "Light Snow",
-    5101: "Heavy Snow",
-    6000: "Freezing Drizzle",
-    6001: "Freezing Rain",
-    6200: "Light Freezing Rain",
-    6201: "Heavy Freezing Rain",
-    7000: "Ice Pellets",
-    7101: "Heavy Ice Pellets",
-    7102: "Light Ice Pellets",
-    8000: "Thunderstorm",
-  };
-  return weatherCodes[code.toString()];
+    const weatherCodes = {
+        0: 'Unknown',
+        1000: 'Clear',
+        1001: 'Cloudy',
+        1100: 'Mostly Clear',
+        1101: 'Partly Cloudy',
+        1102: 'Mostly Cloudy',
+        2000: 'Fog',
+        2100: 'Light Fog',
+        3000: 'Light Wind',
+        3001: 'Wind',
+        3002: 'Strong Wind',
+        4000: 'Drizzle',
+        4001: 'Rain',
+        4200: 'Light Rain',
+        4201: 'Heavy Rain',
+        5000: 'Snow',
+        5001: 'Flurries',
+        5100: 'Light Snow',
+        5101: 'Heavy Snow',
+        6000: 'Freezing Drizzle',
+        6001: 'Freezing Rain',
+        6200: 'Light Freezing Rain',
+        6201: 'Heavy Freezing Rain',
+        7000: 'Ice Pellets',
+        7101: 'Heavy Ice Pellets',
+        7102: 'Light Ice Pellets',
+        8000: 'Thunderstorm',
+    };
+    return weatherCodes[code.toString()];
 };
 
-export { createUrl, addHours, isSleepTime, isFlyableTime, formatTime, prettyPrintWeatherCode };
+export {
+    createUrl,
+    addHours,
+    isSleepTime,
+    isFlyableTime,
+    formatTime,
+    prettyPrintWeatherCode,
+};
