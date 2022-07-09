@@ -1,5 +1,6 @@
 import React from 'react';
 import { getIcon } from "../icons";
+import Moment from 'react-moment';
 import './sunriseset.component.css';
 
 function SunRiseSet({ isSunrise, time }) {
@@ -9,7 +10,8 @@ function SunRiseSet({ isSunrise, time }) {
     <div className="item">
         <img height="50px" src={getIcon(iconName)} alt={iconName}/>
 
-        <span className="sunriseset-time">{time}</span>
+        <p className="sunriseset-time">
+        <Moment format="h:mm a">{time}</Moment></p>
     </div>
     );
 }

@@ -3,8 +3,15 @@ div.item {
     display: inline-block;
     text-align: center;
     width: 85px;
+    padding: 0 5px;
 }
 
 .caption {
     display: block;
+}
+
+.sunriseset-time{
+    margin: 0;
+    font-weight: bold;
+    font-size: 16px;
 }

@@ -5,7 +5,7 @@ import { Hourly } from "./hourly.component";
 import { SunRiseSet } from "./sunriseset.component";
 import { useTimeline } from "../hooks/use-weather.hook";
 import { useSunrise } from "../hooks/use-sunrise.hook";
-import TomorrowIcon from '../icons/tomorrow-icon.svg';
+import Moment from 'react-moment';
 import PinIcon from '../icons/pin.svg';
 import { addHours } from "../utilities";
 import { isFlyableTime } from "../utilities";
@@ -59,17 +59,16 @@ function App({ apikey, lat, lon, location }) {
 
     return (
         <div className="app-root">
-            <div class="flex-grid-thirds">
-                <div className="col">{now.toDateString()} 
+            <div className="flex-grid-thirds">
+                <div className="col"><Moment date={now} format="ddd MMM Do, h:mm a"></Moment> 
                     <div className="location">
                     <img className="icon location-icon" src={PinIcon} alt={location} title={location} />
                         {location}
                 </div></div>
                 <div className="col"><div className="sunriseset">
-                    <SunRiseSet isSunrise={true} time={sunrise.toLocaleTimeString()}/>
-                    <SunRiseSet isSunrise={false} time={sunset.toLocaleTimeString()} /> 
+                    <SunRiseSet isSunrise={true} time={sunrise}/>
+                    <SunRiseSet isSunrise={false} time={sunset} /> 
                 </div></div>
-                <div className="col"><span className="time">{now.toLocaleTimeString()}</span></div>
             </div>
             <Realtime realtime={realtimeResponse} />
             <div className="divider" />
